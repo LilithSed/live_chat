@@ -1,0 +1,142 @@
+{% load static %}
+
+<style type="text/css">
+    .header{
+        padding: 3px;
+        background-color: #faf5f5;
+        margin-bottom: 4px;
+        border-bottom: solid;
+        border-top: solid;
+        border-left: solid;
+        border-right: solid;
+        border-color: #e6dfdf;
+    }
+    .home{
+        font-size: 26px;
+        color: #4a4242;
+        margin-right: 3px;
+        flex-direction: row;
+    }
+    .links{
+        color: #4a4242;
+    }
+    .search{
+        flex-direction: row;
+        margin-left: 20px;
+        text-align: center;
+    }
+    .child { 
+        display: inline-block;
+    }
+    .login{
+        flex-direction: row-reverse;
+        color: #4a4242;
+        font-size: 20px;
+        margin-right: 15px;
+        margin-top: 5px;
+        float: right;
+    }
+    .login_text{
+        color: #4a4242;
+        margin-right: 15px;
+    }
+    .image{
+        max-width: 5%;
+        max-height: 5%;
+        border-radius: 50%;
+        border:1px solid #4a4242;
+        background-color:#4a4242;
+    }
+</style>
+
+<div class="d-flex p-3 px-md-4 mb-4 bg-white border-bottom shadow-sm header">
+    <!-- MEDIUM+ screen-->
+    <div class="d-none d-md-flex flex-row my-auto flex-grow-1 align-items-center">
+        <!-- column 1 -->
+        <h5 class="mr-3 font-weight-normal justify-content-start home child">
+            <span class="material-symbols-outlined">home</span><a href="{% url 'home' %}" class="links">Home</a>
+        </h5>
+        <!-- column 2 -->
+        <form class="search-bar justify-content-start search child">
+            <input type="text" class="form-control" name="q" id="id_q_large" placeholder="Search...">
+        </form>
+        <!-- column 3 -->
+        <div class="d-flex flex-row-reverse flex-grow-1 login child">
+            <nav class="">
+                {% if request.user.is_authenticated %}
+                    <div class="dropdown dropleft show p-2">
+                        <div class="d-flex flex-row">
+                            <!-- Account -->
+                            <div class="btn-group dropleft">
+                                <img class="account-image rounded-circle image login" id="id_profile_links" data-toggle="dropdown" aria-haspopup="true" aria-expended="false" src="{% static 'images/istockphoto-1223671392-612x612.jpg' %}" alt="profile picture">
+                                <div class="dropdown-menu" aria-labelledby="id_profile_links">
+                                    <a class="dropdown-item" href="#">Account</a>
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </div>
+                            </div>
+                            <!-- General Notifications -->
+                            <div class="btn-group dropleft login">
+                                <div class="d-flex notifications-icon-container rounded-circle" id="id_notification_dropdown_toggle" data-toggle="dropdown">
+                                    <span id="id_general_notifications_count" class="notify-badge"></span>
+                                    <span class="material-symbols-outlined">notifications</span>
+                                    <div class="dropdown-menu scrollable-menu" aria-labelledby="id_notification_dropdown_toggle" id="id_general_notifications_container">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Chat Notifications -->
+                            <div class="btn-group dropleft login">
+                                <div class="d-flex notifications-icon-container" id="id_chat_notification_dropdown_toggle" data-toggle="dropdown">
+                                    <span id="id_chat_notifications_count" class="notify-badge"></span>
+                                    <span class="material-symbols-outlined">chat</span>
+                                    <div class="dropdown-menu scrollable-menu" aria-labelledby="id_chat_notification_dropdown_toggle" id="id_chat_notifications_container">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <a class="login_text" href="#">Login</a>
+                    <a class="login_text" href="#">Register</a>
+                {% endif %}
+            </nav>
+        </div>
+    </div>
+    <!-- END MEDIUM+ screen-->
+
+
+    <!-- SMALL-- screen-->
+    <div class="d-flex" style="width: 766px">
+        <!-- Row 1 -->
+        <h5 class="font-weight-normal">
+            <a class="p-2 text-dark" href="{% url 'home' %}">Home</a>
+        </h5>
+
+        <!-- Row 2 -->
+        <form class="search-bar">
+            <input type="text" class="form-control" name="q" id="id_q_small" placeholder="Search...">
+        </form>
+
+        <!-- Row 3 -->
+        <div class="d-flex">
+            <nav class="">
+                {% if request.user.is_authenticated %}
+                    <div class="dropdown dropleft show p-2">
+                        <div class="d-flex flex-row">
+                            <div class="btn-group dropleft">
+                                <img class="account-image rounded-circle image login" id="id_profile_links" data-toggle="dropdown" aria-haspopup="true" aria-expended="false" src="{% static 'images/istockphoto-1223671392-612x612.jpg' %}" alt="profile picture">
+                                <div class="dropdown-menu" aria-labelledby="id_profile_links">
+                                    <a class="dropdown-item" href="#">Account</a>
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <a class="login_text" href="#">Login</a>
+                    <a class="login_text" href="#">Register</a>
+                {% endif %}
+            </nav>
+        </div>
+    </div>
+    <!--SMALL-- screen -->
+</div>

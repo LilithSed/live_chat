@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<style type ="text/css">
+
+  .view {
+    min-width: calc( 42vw - 12px );
+    min-height: calc( 58vmin / var(--precalculated-scaled-value) );
+    }
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+    }
+  
+  .top-nav {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    }
+  
+  .top-nav {
+    flex-direction: row;
+    }
+
+  .top-nav ul {
+    display: flex;
+    flex-direction: row;
+    font-size: 26px;
+    }
+
+  .tab {
+    display: inline-block;
+    margin-left: 40px;
+    }
+
+  .my-grid{
+    border: 1px solid blue;
+    }
+  my-grid-item{
+    border: 1px solid black;
+    }
+
+</style>
+
+<div class="top-nav">
+    <nav>
+        <ul>
+            <p class="m-auto-item m-auto">Item<span class="tab"></span></p>
+            <p class="m-auto-item m-auto">Item<span class="tab"></span></p>
+            <p class="m-auto-item m-auto">Item<span class="tab"></span></p>
+            <p class="m-auto-item m-auto">Item<span class="tab"></span></p>
+            <p class="m-auto-item m-auto">Item<span class="tab"></span></p>
+            <p class="m-auto-item m-auto"><span class="material-symbols-outlined">home</span>Home</p>
+        </ul>
+      </nav>
+</div>
+
+{% endblock content %}
